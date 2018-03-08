@@ -1,0 +1,24 @@
+The script calc_nb_gromacs.py needs three files in input (in the folder cg_model):
+
+traj.xtc (gromacs trajectory)
+conf.gro (gromacs coordinate file)
+topol.top (gromacs topology)
+For now the script works on files for a Calpha, coarse-grained model. 
+
+and a folder where the results will be stored (ene.txt and log.txt files). The format of the ene.txt file is 2 columns, the 1st is
+the frame number, the second the nb energy (kJ/mol). log.txt file contains some print outs of what the script is doing.
+Usage of the script is demonstrated in usage.sh
+
+Dependencies:
+import sys
+import mdtraj as md
+import numpy as np
+import math
+from pysph.base.utils import get_particle_array
+from pysph.base import utils
+from pysph.base import nnps
+from pyzoltan.core.carray import UIntArray
+import argparse
+from argparse import RawTextHelpFormatter
+
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "# Bond          Angle    Proper Dih.       Gaussian        LJ (SR)" > ene.txt
+awk 'BEGIN{fnd=0;fr=0}{if(fnd==1)print fr,$0; if($5=="Gaussian"){fnd=1; fr=fr+1}else fnd=0}' md.log >> ene.txt
